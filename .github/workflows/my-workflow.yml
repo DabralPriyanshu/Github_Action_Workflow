@@ -1,5 +1,5 @@
 name: My first workflow
-on: [push,workflow_dispatch]
+on: push
 jobs:
   my-first-job: #job name
     runs-on: ubuntu-latest
@@ -7,6 +7,18 @@ jobs:
       - name: Create JS file
         run: echo 'console.log("hello world!");' >app.js
       - name: List files
-        run: ls -a
+        run: ls-a
       - name: Run app.js file
         run: node app.js
+
+  my-second-job: #job name
+    runs-on: ubuntu-latest
+    steps:
+      - name: System info
+        run: |
+          lsb_release -a
+          uname -r
+          lscpu
+          nproc
+          free -h
+          lsblk
