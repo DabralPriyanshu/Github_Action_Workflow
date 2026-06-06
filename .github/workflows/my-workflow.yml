@@ -4,16 +4,10 @@ jobs:
   my-first-job: #job name
     runs-on: ubuntu-latest
     steps:
-      - name: Create JS file
-        run: echo 'console.log("hello world!");' >app.js
       - name: List files
         run: ls -a
-      - name: Run app.js file
-        run: node app.js
-
-  my-second-job: #job name
-    runs-on: ubuntu-latest
-    needs: my-first-job
-    steps:
-      - name: Print Node version
-        run: node -v
+      - name: Print Working Directory
+        run: pwd
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        
